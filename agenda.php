@@ -22,7 +22,7 @@ if ($result->num_rows == 0) {
 $usuario = $result->fetch_assoc();
 $usuario_id = $usuario['id'];
 
-// 🔹 Busca horários disponíveis (também com prepared statement)
+// 🔹 Busca horários disponíveis (com prepared statement)
 $stmt_h = $conn->prepare("SELECT * FROM horarios WHERE usuario_id = ? AND disponivel = 1 ORDER BY data_hora ASC");
 $stmt_h->bind_param("i", $usuario_id);
 $stmt_h->execute();

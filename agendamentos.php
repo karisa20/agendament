@@ -44,7 +44,7 @@ body {
   padding: 20px;
 }
 h2 {
-  color: #0544AB;
+  color: #ffffffff;
 }
 .filtros {
   margin-top: 10px;
@@ -65,24 +65,24 @@ h2 {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 th, td {
-  border: 1px solid #ddd; /* borda table */
-  padding: 10px;
+  border: 1px solid #ffffffff; /* borda table */
+  padding: 15px;
   text-align: left;
 }
 th {
   background-color: #0544AB;
   color: white;
 }
-tr:nth-child(even) { /* cor de dentro da linha */
-  background-color: #f2f2f2;
+tr:nth-child(even) { /* cor dentro linha */
+  background-color: #23c0c6ff;
 }
 a.voltar {
   display: inline-block;
   margin-top: 20px;
-  color: #0544AB;
+  color: #ffffffff;
   text-decoration: none;
 }
 </style>

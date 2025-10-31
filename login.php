@@ -6,14 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $email = $_POST['email'];
 $senha_digitada = $_POST['senha'];
 
-// Busca o usuário pelo email
+// Busca usuário email
 $sql = "SELECT * FROM usuarios WHERE email='$email'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) == 1) {
     $user = mysqli_fetch_assoc($result);
 
-    // Verifica se a senha digitada confere com o hash armazenado
+    // Verifica senha confere com o hash
     if (password_verify($senha_digitada, $user['senha'])) {
         $_SESSION['usuario_id'] = $user['id'];
         $_SESSION['usuario_nome'] = $user['nome'];

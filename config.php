@@ -1,24 +1,24 @@
 <?php
-// Iniciar sessão com segurança
+//sessão segura
 session_start([
     'cookie_httponly' => true,
     'cookie_secure' => isset($_SERVER['HTTPS']),
     'cookie_samesite' => 'Strict'
 ]);
 
-// Configuração do banco
+// Config banco
 $mysqli = new mysqli("localhost", "root", "", "agendament");
 if ($mysqli->connect_error) {
     error_log("Erro de conexão: " . $mysqli->connect_error);
     exit("Erro interno. Tente novamente mais tarde.");
 }
 
-// Função para sanitizar dados de entrada
+//sanitizar entrada
 function sanitize_input($data) {
     return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
 }
 
-// Função segura de consulta preparada
+// Função segura consulta
 function db_query($mysqli, $query, $types = "", $params = []) {
     $stmt = $mysqli->prepare($query);
     if (!$stmt) {

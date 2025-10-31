@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql_update = "UPDATE horarios SET disponivel=0 WHERE id='$horario_id'";
         mysqli_query($conn, $sql_update);
 
-        // Busca dados do profissional
+        // Busca profissional
         $sql_user = "SELECT nome, link_publico FROM usuarios WHERE id='$usuario_id'";
         $result_user = mysqli_query($conn, $sql_user);
         $usuario = mysqli_fetch_assoc($result_user);
@@ -40,11 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data_formatada = date("d/m/Y \à\s H:i", strtotime($horario['data_hora']));
         $nome_profissional = $usuario['nome'];
 
-        // Monta mensagem de WhatsApp
+        //mensagem WhatsApp
         $mensagem = "Oi, sou o $nome_cliente! Gostaria de confirmar o agendamento no dia $data_formatada.";
         $mensagem_url = urlencode($mensagem);
 
-        // Redireciona pro WhatsApp Web (sem número fixo ainda)
+        // Redireciona WhatsApp(sem número fixo)
         header("Location: sucesso.php?mensagem=$mensagem_url");
         exit;
     } else {

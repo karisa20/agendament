@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$usuario = "root"; // padrão do XAMPP
+$usuario = "root";
 $senha = "";
 $banco = "agendamentos_db";
 
